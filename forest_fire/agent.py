@@ -24,6 +24,7 @@ class TreeCell(mesa.Agent):
         super().__init__(pos, model)
         self.pos = pos
         self.condition = "Fine"
+        self.health = "Unhealthy"
 
     def step(self):
         """
@@ -31,6 +32,6 @@ class TreeCell(mesa.Agent):
         """
         if self.condition == "On Fire":
             for neighbor in self.model.grid.iter_neighbors(self.pos, True):
-                if neighbor.condition == "Fine":
+                if neighbor.condition == "Fine" and neighbor.health == "Unhealthy":
                     neighbor.condition = "On Fire"
             self.condition = "Burned Out"

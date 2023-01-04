@@ -8,7 +8,7 @@ class ForestFire(mesa.Model):
     Simple Forest Fire model.
     """
 
-    def __init__(self, width=100, height=100, density=0.65):
+    def __init__(self, width=100, height=100, density=0.65, health_percentage=0.65):
         """
         Create a new forest fire model.
 
@@ -36,6 +36,8 @@ class ForestFire(mesa.Model):
                 # Set all trees in the first column on fire.
                 if x == 0:
                     new_tree.condition = "On Fire"
+                if self.random.random() < health_percentage:
+                    new_tree.health = "Healthy"
                 self.grid.place_agent(new_tree, (x, y))
                 self.schedule.add(new_tree)
 
