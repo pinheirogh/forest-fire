@@ -1,8 +1,8 @@
 ## Descrição da Hipótese Causal
 
-A hipótese trabalhada neste laboratório busca comprovar a influência da saúde das árvores e consequentemente das florestas na retardação de incêndios florestais.
+A hipótese trabalhada neste laboratório busca comprovar a influência da saúde das árvores e consequentemente das florestas na retardação de incêndios florestais e na capacidade de autorrecuperação da área.
 
-A pesquisa bibliométrica feita anteriormente demonstrou um interesse da comunidade científica em explorar variáveis dependentes que afetam os ambientes florestais e que os tornam, ou não, mais propícios aos incêndio. Desse modo, nesta primeira alteração do modelo de simulação uma nova variável dependente, que foi pensada como fator universal de todos as características que podem influenciar ambientalmente a flora de uma área, foi adicionada.
+A pesquisa bibliométrica feita anteriormente demonstrou um interesse da comunidade científica em explorar variáveis dependentes que afetam os ambientes florestais e que os tornam, ou não, mais propícios aos incêndios. Desse modo, nesta primeira alteração do modelo de simulação uma nova variável dependente, que foi pensada como fator universal de todos as características que podem influenciar ambientalmente a flora de uma área, foi adicionada.
 
   
 
@@ -33,9 +33,12 @@ Abrir o servidor no navegador através da URL:
 ```
 
 
-## Descrição das variáveis
+## Descrição das variáveis (Dep e Indep?)
 ### Tree Density
 Variável padrão do modelo. Regula a quantidade de árvores colocadas de forma aleatória no grid de simulação. Nesse modelo, a densidade da área é importante porque o fogo do incêndio só é transmitido por proximidade/vizinhança. 
 
 ### Healthy Tree Percentage
 Variável adicionada nesta alteração do modelo. Ela visa definir de forma aleatória o percentual de árvores da simulação que serão completamente saudáveis, ou seja, que não aderirão ao incêndio.
+
+Independente:
+Capacidade de recuperação da área
