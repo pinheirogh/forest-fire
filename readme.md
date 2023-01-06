@@ -33,12 +33,16 @@ Abrir o servidor no navegador através da URL:
 ```
 
 
-## Descrição das variáveis (Dep e Indep?)
-### Tree Density
-Variável padrão do modelo. Regula a quantidade de árvores colocadas de forma aleatória no grid de simulação. Nesse modelo, a densidade da área é importante porque o fogo do incêndio só é transmitido por proximidade/vizinhança. 
+## Descrição das variáveis
+### Independentes
+- Tree Density
+	>Variável padrão do modelo. Regula a quantidade de árvores colocadas de forma aleatória no grid de simulação. Nesse modelo, a densidade da área é importante porque o fogo do incêndio só é transmitido por proximidade/vizinhança. 
 
-### Healthy Tree Percentage
-Variável adicionada nesta alteração do modelo. Ela visa definir de forma aleatória o percentual de árvores da simulação que serão completamente saudáveis, ou seja, que não aderirão ao incêndio.
+- Healthy Tree Percentage
+	>Variável adicionada nesta alteração do modelo. Ela visa definir de forma aleatória o percentual de árvores da simulação que serão completamente saudáveis, ou seja, que não aderirão ao incêndio.
 
-dependente:
-Capacidade de recuperação da área
+### Dependentes
+- Área preservada e Queimada
+	>Relaciona a quantidade de árvores queimadas, em chamas e sadias
+- Capacidade de Recuperação da Área Queimada
+	>Variável que considera a capacidade de uma árvore não queimada de recuperar no mínimo mais uma árvore queimada após o incêndio.
