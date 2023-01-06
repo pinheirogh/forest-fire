@@ -3,6 +3,7 @@ import mesa
 from .model import ForestFire
 
 COLORS = {"Fine": "#00AA00", "On Fire": "#880000", "Burned Out": "#000000"}
+COLORS2 = {"Árvores Recuperáveis": "#00AA00", "Árvores Irrecuperáveis": "#660000"}
 
 
 def forest_fire_portrayal(tree):
@@ -12,7 +13,7 @@ def forest_fire_portrayal(tree):
     (x, y) = tree.pos
     portrayal["x"] = x
     portrayal["y"] = y
-    portrayal["Color"] = COLORS[tree.condition]
+    portrayal["Color"] = COLORS[tree.condition] if tree.health != "Healthy" else "#007d00"
     return portrayal
 
 
@@ -25,13 +26,15 @@ tree_chart = mesa.visualization.ChartModule(
 pie_chart = mesa.visualization.PieChartModule(
     [{"Label": label, "Color": color} for (label, color) in COLORS.items()]
 )
-
+pie_chart2 = mesa.visualization.PieChartModule(
+    [{"Label": label, "Color": color} for (label, color) in COLORS2.items()]
+)
 model_params = {
     "height": 100,
     "width": 100,
     "density": mesa.visualization.Slider("Tree density", 0.65, 0.01, 1.0, 0.01),
-    "health_percentage": mesa.visualization.Slider("Healthy Tree Percentage", 0.65, 0.01, 1.0, 0.01),
+    "health_percentage": mesa.visualization.Slider("Healthy Tree Percentage", 0.3, 0.01, 1.0, 0.01),
 }
 server = mesa.visualization.ModularServer(
-    ForestFire, [canvas_element, tree_chart, pie_chart], "Forest Fire", model_params
+    ForestFire, [canvas_element, tree_chart, pie_chart, pie_chart2], "Forest Fire", model_params
 )

@@ -8,7 +8,7 @@ class ForestFire(mesa.Model):
     Simple Forest Fire model.
     """
 
-    def __init__(self, width=100, height=100, density=0.65, health_percentage=0.65):
+    def __init__(self, width=100, height=100, density=0.65, health_percentage=0.3):
         """
         Create a new forest fire model.
 
@@ -25,6 +25,8 @@ class ForestFire(mesa.Model):
                 "Fine": lambda m: self.count_type(m, "Fine"),
                 "On Fire": lambda m: self.count_type(m, "On Fire"),
                 "Burned Out": lambda m: self.count_type(m, "Burned Out"),
+                "Árvores Recuperáveis": lambda m: (self.count_type(m, "Fine")/self.count_type(m, "Burned Out") if self.count_type(m, "Burned Out") != 0 else 1)*100,
+                "Árvores Irrecuperáveis": lambda m: 100 - ((self.count_type(m, "Fine")/self.count_type(m, "Burned Out") if self.count_type(m, "Burned Out") != 0 else 1)*100),
             }
         )
 
