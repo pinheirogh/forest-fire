@@ -7,7 +7,7 @@ import numpy as np
 
 # definição das variáveis dos experimentos 
 # que serão controladas (valor fixo) ou manipuladas
-params = {"width": 100, "height": 100, "density": np.arange(0, 1, 0.4), "health_percentage": np.arange(0, 1, 0.1)}
+params = {"width": 100, "height": 100, "density": 0.65, "health_percentage": np.arange(0, 1, 0.1)}
 
 # define a quantidade de experimentos 
 # que serão repetidos para cada configuração de valores
@@ -32,9 +32,6 @@ import pandas as pd
 
 # converte os dados das simulações em planilhas (dataframes)
 results_df = pd.DataFrame(results)
-results_df = results_df.assign(porcentagem_recuperacao = 0)
-# adicionar campo porcentagem no dataframe contendo a porcentagem de arvores irrecuperaveis se esse valor for maior que 0 senão 100
-results_df["porcentagem_recuperacao"] = results_df.apply(lambda row: row["arvores_irrecuperaveis"] if row["arvores_irrecuperaveis"] >= 0 else 100, axis=1)
 
 # gera uma string com data e hora
 from datetime import datetime
