@@ -24,12 +24,12 @@ Foi adicionado um novo atributo ao agente "árvore" da simulação. O atributo s
 ## Orientações de uso do Simulador
 As alterações feitas no simulador não afetaram os métodos de execução do simulador. Desse modo, o comando de execução continua o mesmo apresentado abaixo. No entanto, a nova variável de percentual de árvores saudáveis deve ser manipulada para que hajam resultados diferentes ao padrão.
 ``` 
-	$ mesa runserver
+ $ mesa runserver
 ```
 
 Abrir o servidor no navegador através da URL:
 ```
-    http://127.0.0.1:8521/
+ http://127.0.0.1:8521/
 ```
 
 
