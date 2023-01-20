@@ -26,7 +26,7 @@ class ForestFire(mesa.Model):
                 "On Fire": lambda m: self.count_type(m, "On Fire"),
                 "Burned Out": lambda m: self.count_type(m, "Burned Out"),
                 "arvores_recuperaveis": lambda m: (self.count_type(m, "Fine")/self.count_type(m, "Burned Out") if self.count_type(m, "Burned Out") != 0 else 1)*100,
-                "arvores_irrecuperaveis": lambda m: 100 - ((self.count_type(m, "Fine")/self.count_type(m, "Burned Out") if self.count_type(m, "Burned Out") != 0 else 1)*100),
+                "arvores_irrecuperaveis": lambda m: ((self.count_type(m, "Burned Out") - 2*self.count_type(m, "Fine"))/(self.count_type(m, "Burned Out") + self.count_type(m,"Fine")))*100
             }
         )
 

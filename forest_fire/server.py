@@ -3,7 +3,7 @@ import mesa
 from .model import ForestFire
 
 COLORS = {"Fine": "#00AA00", "On Fire": "#880000", "Burned Out": "#000000"}
-COLORS2 = {"Árvores Recuperáveis": "#00AA00", "Árvores Irrecuperáveis": "#660000"}
+COLORS2 = {"arvores_recuperaveis": "#00AA00", "arvores_irrecuperaveis": "#660000"}
 
 
 def forest_fire_portrayal(tree):
