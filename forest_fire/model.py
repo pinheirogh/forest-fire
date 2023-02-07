@@ -25,11 +25,13 @@ class ForestFire(mesa.Model):
                 "Fine": lambda m: self.count_type(m, "Fine"),
                 "On Fire": lambda m: self.count_type(m, "On Fire"),
                 "Burned Out": lambda m: self.count_type(m, "Burned Out"),
-                "arvores_recuperaveis": lambda m: (self.count_type(m, "Fine")/self.count_type(m, "Burned Out") if self.count_type(m, "Burned Out") != 0 else 1)*100,
-                "arvores_irrecuperaveis": lambda m: ((self.count_type(m, "Burned Out") - 2*self.count_type(m, "Fine"))/(self.count_type(m, "Burned Out") + self.count_type(m,"Fine")))*100
+                "arvores_recuperaveis": lambda m: 100 if self.count_type(m, "Fine") >= self.count_type(m, "Burned Out") else (self.count_type(m, "Fine")/self.count_type(m, "Burned Out") if self.count_type(m, "Burned Out") != 0 else 1)*100,
+                "arvores_irrecuperaveis": lambda m: 0 if self.count_type(m, "Fine") >= self.count_type(m, "Burned Out") else 100-((self.count_type(m, "Fine")/self.count_type(m, "Burned Out") if self.count_type(m, "Burned Out") != 0 else 1)*100),
             }
         )
 
+
+       
         # Place a tree in each cell with Prob = density
         for (contents, x, y) in self.grid.coord_iter():
             if self.random.random() < density:
